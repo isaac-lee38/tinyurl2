@@ -1,5 +1,6 @@
 Invoke-RestMethod -Uri "http://localhost:5000/shorten" -Method Post -ContentType "application/json" -Body '{"url":"https://google.com"}'
 Invoke-RestMethod -Uri "http://localhost:5000/shorten" -Method Post -ContentType "application/json" -Body '{"url":"https://facebook.com"}'
+Invoke-RestMethod -Uri "http://localhost:5000/shorten" -Method Post -ContentType "application/json" -Body '{"url":"https://icloud.com"}'
 
 docker build .
 docker-compose up -d 
