@@ -66,13 +66,19 @@ def shorten_url():
 
     return jsonify({"shortened_url": f"http://localhost:5000/{new_url.short_code}"})
 
-
+#
 @app.route("/<short_code>")
 def redirect_to_original(short_code):
     url_entry = ShortenedURL.query.filter_by(short_code=short_code).first()
     if url_entry:
         return redirect(url_entry.original_url, code=302)
     return jsonify({"error": "Shortened URL not found"}), 404
+
+# Get all URLs list in the Database
+@app.route("/all", methods=["GET"])
+def get_all_urls():
+    urls = ShortenedURL.query.all()
+    return jsonify([{"original_url": url.original_url, "short_code": url.short_code} for url in urls])
 
 
 if __name__ == "__main__":

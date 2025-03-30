@@ -2,5 +2,8 @@ Invoke-RestMethod -Uri "http://localhost:5000/shorten" -Method Post -ContentType
 Invoke-RestMethod -Uri "http://localhost:5000/shorten" -Method Post -ContentType "application/json" -Body '{"url":"https://facebook.com"}'
 Invoke-RestMethod -Uri "http://localhost:5000/shorten" -Method Post -ContentType "application/json" -Body '{"url":"https://icloud.com"}'
 
+curl -X POST http://localhost:5000/shorten -H "Content-Type: application/json" -d "{\"url\":\"https://lscct.com\"}"
+curl -X POST http://localhost:5000/shorten -H "Content-Type: application/json" -d "{\"url\":\"https://lscct.com\"}"
+
 docker build .
 docker-compose up -d 
